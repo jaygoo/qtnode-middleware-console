@@ -1,0 +1,53 @@
+{
+  "name": "qtnode-middleware-console",
+  "version": "1.0.0",
+  "description": "替代console",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo See directory sources/tests",
+    "prepare": "npm run build:prod",
+    "build": "tsc -p .",
+    "rebuild": "npm run clean && npm run build",
+    "clean": "rm -rf dist",
+    "lint": "eslint --fix --ext .ts ./src",
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm verson major",
+    "publish-access": "npm publish --access=public",
+    "build:dev": "webpack --watch --colors --mode development --env.NODE_ENV=development",
+    "build:test": "webpack --progress --colors --mode development  --env.NODE_ENV=development",
+    "build:prod": "webpack --progress --colors --mode production  --env.NODE_ENV=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jaygoo/qtnode-middleware-console.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "guoyujie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaygoo/qtnode-middleware-console/issues"
+  },
+  "homepage": "https://github.com/jaygoo/qtnode-middleware-console#readme",
+  "types": "./dist/src/index.d.ts",
+  "typings": "./dist/src/index.d.ts",
+  "devDependencies": {
+    "@types/node": "^12.6.8",
+    "babel-cli": "6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "1.6.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-typescript": "^0.14.0",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "typescript-eslint-parser": "^22.0.0",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {}
+}
