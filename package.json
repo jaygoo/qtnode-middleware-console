@@ -4,19 +4,7 @@
   "description": "替代console",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo See directory sources/tests",
-    "prepare": "npm run build:prod",
-    "build": "tsc -p .",
-    "rebuild": "npm run clean && npm run build",
-    "clean": "rm -rf dist",
-    "lint": "eslint --fix --ext .ts ./src",
-    "patch": "npm version patch",
-    "minor": "npm version minor",
-    "major": "npm verson major",
-    "publish-access": "npm publish --access=public",
-    "build:dev": "webpack --watch --colors --mode development --env.NODE_ENV=development",
-    "build:test": "webpack --progress --colors --mode development  --env.NODE_ENV=development",
-    "build:prod": "webpack --progress --colors --mode production  --env.NODE_ENV=production"
+    "test": "echo See directory sources/tests"
   },
   "repository": {
     "type": "git",
@@ -45,9 +33,11 @@
     "babel-plugin-react-transform": "^3.0.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "colors": "^1.4.0",
     "eslint": "^4.19.1",
     "eslint-config-alloy": "^3.4.0",
     "eslint-plugin-babel": "^5.3.0",
+    "qtnode-middleware-console": "^1.0.1",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "webpack": "^4.41.2",

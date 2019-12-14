@@ -1,79 +1,110 @@
-export interface clogInfo {
-    color ?: string ,
-    bcolor ?: string,
-    data: any,
-}
 
-export type colorName = 'red' | 'yellow' | 'green' | 'orange' | 'blue' | 'brown' | 'black' | 'BlueViolet' | any;
+var colors = require('colors');
 
-let isDebug = true;
+colors.setTheme({
+    log: 'white',
+    info: 'green',
+    data: 'grey',
+    help: 'cyan',
+    warn: 'yellow',
+    debug: 'blue',
+    error: 'red',
+    tip: 'cyan'
 
-export function cpriter(...args: clogInfo[]) {
-    if (isDebug) {
-        console.log("%c" + "<?", `color:white; background: gray;`);
-        args.forEach((v: clogInfo, k )=>{
+});
 
-            if(!!!v.color && !!!v.bcolor)
-                console.log(v.data);
-            else {
-                console.log("%c" + v.data + "", `color:${v.color}; background: ${v.bcolor}; font-size: 14px`);
-            }
-        })
-        console.log("%c" + "?>", `color:white; background: gray;`);
-
-    }
-
-}
-
-function clog(color: colorName = 'red', bcolor: colorName = 'black', ...args: any[]) {
-    if (isDebug) {
-        console.log("%c" + "<?", `color:white; background: gray;`);
-        console.log("%c" + args, `color:${color}; background: ${bcolor}`);
-        console.log("%c" + "?>", `color:white; background: gray;`);
+export function warn(...args) {
+    let bo = true;
+    let iter = args[Symbol.iterator]();
+    while (bo) {
+        let c = iter.next();
+        if( bo = !c.done)
+            console.log(("【warn " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).warn);
     }
 }
 
-export function cerror(...args: any[]) {
-    if (isDebug) clog('red', '#a7a1a1', ...args);
+export function error(...args) {
+    let bo = true;
+    let iter = args[Symbol.iterator]();
+    while (bo) {
+        let c = iter.next();
+        if( bo = !c.done)
+            console.log(("【error " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).error);
+    }
 }
 
-export function cinfo(...args: any[]) {
-    // if (isDebug) clog('green', '#a7a1a1' , ...args);
-    if (isDebug) clog('green', '#a7a1a1' , ...args);
-
+export function debug(...args) {
+    let bo = true;
+    let iter = args[Symbol.iterator]();
+    while (bo) {
+        let c = iter.next();
+        if( bo = !c.done)
+            console.log(("【debug " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).debug);
+    }
 }
 
-export function ctip(...args: any[]) {
-    if (isDebug) clog('yellow', 'a7a1a1', ...args);
+export function data(...args) {
+    let bo = true;
+    let iter = args[Symbol.iterator]();
+    while (bo) {
+        let c = iter.next();
+        if( bo = !c.done)
+            console.log(("【data " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).data);
+    }
 }
 
-/* 错误 */
-export let error: (...args: any[]) => void = (...args: any[]) => {
-    if (isDebug) console.error('【error】', ...args);
-};
+export function help(...args) {
+    let bo = true;
+    let iter = args[Symbol.iterator]();
+    while (bo) {
+        let c = iter.next();
+        if( bo = !c.done)
+            console.log(("【help " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).help);
+    }
+}
 
-/* 警告 */
-export let warn = function(...args: any[]) {
-    if (isDebug) console.warn('【warn】', ...args);
-};
+export function info(...args) {
+    let bo = true;
+    let iter = args[Symbol.iterator]();
+    while (bo) {
+        let c = iter.next();
+        if( bo = !c.done)
+            console.log(("【info " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).info);
+    }
+}
 
-/* 普通打印信息 */
-export let info = function(...args: any[]) {
-    if (isDebug) console.info('【info】', ...args);
-};
+export function log(...args) {
+    let bo = true;
+    let iter = args[Symbol.iterator]();
+    while (bo) {
+        let c = iter.next();
+        if( bo = !c.done)
+            console.log(("【log " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).log);
+    }
+}
 
-/* debug打印 */
-export let debug = function(...args: any[]) {
-    if (isDebug) console.debug('【debug】', ...args);
-};
+export function tip(...args) {
+    let bo = true;
+    let iter = args[Symbol.iterator]();
+    while (bo) {
+        let c = iter.next();
+        if( bo = !c.done)
+            console.log(("【tip " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).tip);
+    }
+}
 
-/* 普通输出 */
-export let trace = function(...args: any[]) {
-    if (isDebug) console.trace('【trace】', ...args);
-};
-
-/* 普通log */
-export let log = function(...args: any[]) {
-    if (isDebug) console.log('【log】', ...args);
-};
-
+Date.prototype.Format = function (fmt) {
+    var o = {
+        "M+": this.getMonth() + 1, //月份
+        "d+": this.getDate(), //日
+        "H+": this.getHours(), //小时
+        "m+": this.getMinutes(), //分
+        "s+": this.getSeconds(), //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds() //毫秒
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
