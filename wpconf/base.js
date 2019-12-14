@@ -12,7 +12,7 @@ module.exports = {
     target: "node",
 
     entry: {
-        index: resolve('./entry/index.js')
+        index: resolve('./entry/index.ts')
     },
     output: {//输出目录
         path:  path.resolve( './dist'),
@@ -27,9 +27,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                use: ["ts-loader"],
             }
         ]
     },

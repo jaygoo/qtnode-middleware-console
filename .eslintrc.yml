@@ -1,7 +1,8 @@
-parser: typescript-eslint-parser
+parser: "@typescript-eslint/parser"
 
 plugins:
-  - typescript
+  - "@typescript-eslint"
+  - babel
 
 env:
   es6: true
@@ -10,6 +11,7 @@ env:
   node: true
 
 extends:
+    - "@typescript-eslint/recommended"
     - alloy
     - alloy/typescript
     - eslint:recommended
