@@ -10,100 +10,100 @@ colors.setTheme({
     debug: 'blue',
     error: 'red',
     tip: 'cyan'
-
 });
 
-export function warn(...args) {
+export function warn(...args: any) {
     let bo = true;
     let iter = args[Symbol.iterator]();
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log(("【warn " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).warn);
+            console.log((colors.error("【warn " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
-export function error(...args) {
+export function error(...args: any) {
     let bo = true;
     let iter = args[Symbol.iterator]();
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log(("【error " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).error);
+            console.log((colors.error("【error " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
-export function debug(...args) {
+export function debug(...args: any) {
     let bo = true;
     let iter = args[Symbol.iterator]();
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log(("【debug " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).debug);
+            console.log((colors.error("【debug " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
-export function data(...args) {
+export function data(...args: any) {
     let bo = true;
     let iter = args[Symbol.iterator]();
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log(("【data " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).data);
+            console.log(colors.error(("【data " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
-export function help(...args) {
+export function help(...args: any) {
     let bo = true;
     let iter = args[Symbol.iterator]();
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log(("【help " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).help);
+            console.log((colors.error("【help " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
-export function info(...args) {
+export function info(...args: any) {
     let bo = true;
     let iter = args[Symbol.iterator]();
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log(("【info " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).info);
+            console.log((colors.error("【info " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
-export function log(...args) {
+export function log(...args: any) {
     let bo = true;
     let iter = args[Symbol.iterator]();
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log(("【log " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).log);
+            console.log(colors.error(("【log " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
-export function tip(...args) {
+export function tip(...args: any) {
     let bo = true;
     let iter = args[Symbol.iterator]();
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log(("【tip " + new Date().Format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString()).tip);
+            console.log(colors.error(("【tip " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
-Date.prototype.Format = function (fmt) {
-    var o = {
-        "M+": this.getMonth() + 1, //月份
-        "d+": this.getDate(), //日
-        "H+": this.getHours(), //小时
-        "m+": this.getMinutes(), //分
-        "s+": this.getSeconds(), //秒
-        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
-        "S": this.getMilliseconds() //毫秒
+function format(fmt: any) {
+    let date: Date = new Date();
+    let o: any = {
+        "M+": date.getMonth() + 1, //月份
+        "d+": date.getDate(), //日
+        "H+": date.getHours(), //小时
+        "m+": date.getMinutes(), //分
+        "s+": date.getSeconds(), //秒
+        "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+        "S": date.getMilliseconds() //毫秒
     };
-    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
     for (var k in o)
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
