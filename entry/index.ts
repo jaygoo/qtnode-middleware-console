@@ -18,7 +18,7 @@ export function warn(...args: any) {
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log((colors.error("【warn " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
+            console.log((colors.warn("【warn " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
@@ -38,7 +38,7 @@ export function debug(...args: any) {
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log((colors.error("【debug " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
+            console.log((colors.debug("【debug " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
@@ -48,7 +48,7 @@ export function data(...args: any) {
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log(colors.error(("【data " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
+            console.log(colors.data(("【data " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
@@ -58,7 +58,7 @@ export function help(...args: any) {
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log((colors.error("【help " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
+            console.log((colors.help("【help " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
@@ -68,7 +68,7 @@ export function info(...args: any) {
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log((colors.error("【info " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
+            console.log((colors.info("【info " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
@@ -78,7 +78,7 @@ export function log(...args: any) {
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log(colors.error(("【log " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
+            console.log(colors.log(("【log " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
@@ -88,7 +88,7 @@ export function tip(...args: any) {
     while (bo) {
         let c = iter.next();
         if( bo = !c.done)
-            console.log(colors.error(("【tip " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
+            console.log(colors.tip(("【tip " + format("yyyy-MM-dd HH:mm:ss") + '】' + c.value.toString())));
     }
 }
 
