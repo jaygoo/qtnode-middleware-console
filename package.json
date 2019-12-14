@@ -1,6 +1,6 @@
 {
   "name": "qtnode-middleware-console",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "替代console",
   "main": "dist/index.js",
   "scripts": {
