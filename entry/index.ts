@@ -2,14 +2,14 @@
 var colors = require('colors');
 
 colors.setTheme({
-    log: 'white',
-    info: 'green',
-    data: 'grey',
-    help: 'cyan',
-    warn: 'yellow',
-    debug: 'blue',
+    log: 'grey',
+    info: 'blue',
+    data: 'gray',
+    help: 'green',
+    warn: 'magenta',
+    debug: 'cyan',
     error: 'red',
-    tip: 'cyan'
+    tip: 'yellow'
 });
 
 export function warn(...args: any) {
